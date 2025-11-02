@@ -1,24 +1,143 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
-:root{
-  --bg:#0b0b0b;
-  --card:#131313;
-  --accent:#00d8ff;
-  --muted:#9aa0a6;
+
+:root {
+  --bg: #0b0b0b;
+  --card: #131313;
+  --accent: #00d8ff;
+  --muted: #9aa0a6;
 }
-*{box-sizing:border-box}
-body{font-family:'Cairo',sans-serif;background:linear-gradient(180deg,var(--bg),#070707 60%);color:#e8eef2;margin:0;min-height:100vh;display:flex;flex-direction:column;}
-header{background:linear-gradient(90deg,#000,#050505);padding:32px 20px;text-align:center;box-shadow:0 6px 24px rgba(0,0,0,0.6);}
-header h1{margin:0;font-size:30px;color:var(--accent);}
-header input{margin-top:18px;width:60%;max-width:720px;padding:12px 16px;border-radius:30px;border:1px solid rgba(255,255,255,0.06);background:#0f0f0f;color:#e6f7fb;outline:none;transition:box-shadow .25s, transform .15s;box-shadow:0 4px 18px rgba(0,0,0,0.6);}
-header input:focus{box-shadow:0 8px 30px rgba(0,216,255,0.07),0 2px 10px rgba(0,0,0,0.6);transform:translateY(-2px);}
-main{width:100%;max-width:1200px;margin:28px auto;padding:0 16px 60px;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px;}
-.card{background:linear-gradient(180deg,var(--card),#151515);padding:18px;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.025);transition:transform .28s cubic-bezier(.2,.9,.2,1),box-shadow .28s;position:relative;overflow:hidden;}
-.card:hover{transform:translateY(-10px) scale(1.01);box-shadow:0 18px 40px rgba(0,216,255,0.07);}
-.card h2{margin:0 0 8px 0;color:var(--accent);font-size:18px;}
-.meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;color:var(--muted);font-size:13px;}
-.meta span{background:rgba(255,255,255,0.02);padding:6px 10px;border-radius:999px;}
-.desc{color:#dfeff3;font-size:14px;line-height:1.6;margin-top:8px;}
-.desc ul{padding-left:20px;margin:0;}
-.desc li{margin-bottom:6px;line-height:1.6;}
-footer{text-align:center;padding:15px;background:#000;color:#999;font-size:14px;margin-top:30px;}
-@media(max-width:600px){header input{width:92%}.card{padding:14px}}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: linear-gradient(180deg, var(--bg), #070707 60%);
+  color: #e8eef2;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Header ---------- */
+header {
+  background: linear-gradient(90deg, #000, #050505);
+  padding: 32px 20px;
+  text-align: center;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 30px;
+  color: var(--accent);
+}
+
+header input {
+  margin-top: 18px;
+  width: 60%;
+  max-width: 720px;
+  padding: 12px 16px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #0f0f0f;
+  color: #e6f7fb;
+  outline: none;
+  transition: box-shadow 0.25s, transform 0.15s;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+}
+
+header input:focus {
+  box-shadow: 0 8px 30px rgba(0, 216, 255, 0.07),
+              0 2px 10px rgba(0, 0, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+/* ---------- Main Grid ---------- */
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 28px auto;
+  padding: 0 16px 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 22px;
+}
+
+/* ---------- Project Card ---------- */
+.card {
+  background: linear-gradient(180deg, var(--card), #151515);
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.025);
+  transition: transform 0.28s cubic-bezier(.2,.9,.2,1), box-shadow 0.28s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 18px 40px rgba(0, 216, 255, 0.07);
+}
+
+.card h2 {
+  margin: 0 0 8px 0;
+  color: var(--accent);
+  font-size: 18px;
+}
+
+.meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.meta span {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+/* ---------- Description ---------- */
+.desc {
+  color: #dfeff3;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.desc ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.desc li {
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #000;
+  color: #999;
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  header input {
+    width: 92%;
+  }
+  .card {
+    padding: 14px;
+  }
+}
