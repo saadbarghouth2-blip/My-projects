@@ -143,6 +143,53 @@ const projects = [
       "Analyzed topographic changes impacting development.",
       "Delivered 3D planning maps for stakeholders."
     ]
+  },
+
+  // 👇👇 New NUCA Projects with Digital Transformation 👇👇
+  {
+    title: "Utility Networks GIS Data Management and Digital Transformation Project – New Obour City",
+    entity: "New Urban Communities Authority (NUCA)",
+    role: [
+      "Contributed to developing an integrated GIS geodatabase model for all utility networks across 23 sectors.",
+      "Applied ArcGIS Topology and Attribute Rules for network integrity and QA/QC validation.",
+      "Developed Python scripts to automate data processing, schema validation, and progress reporting.",
+      "Supported the integration of radar (GPR) and GPS data into ArcGIS Pro for spatial accuracy enhancement.",
+      "Participated in creating web GIS dashboards and mobile monitoring apps to visualize project progress.",
+      "Provided GIS technical support on data standards and contributed to the digital transformation of urban infrastructure."
+    ]
+  },
+  {
+    title: "Utility Networks GIS Data Management and Digital Transformation Project – New Suez City",
+    entity: "New Urban Communities Authority (NUCA)",
+    role: [
+      "Contributed to designing the GIS data schema and spatial integration for 4 city sectors.",
+      "Applied ArcGIS Attribute Rules and Python-based QA/QC tools for automation and validation.",
+      "Processed GPR and GNSS data to refine spatial accuracy of utility networks.",
+      "Participated in developing web GIS dashboards and mobile apps for real-time monitoring.",
+      "Assisted in preparing spatial datasets to support infrastructure planning and digital transformation initiatives."
+    ]
+  },
+  {
+    title: "Utility Networks GIS Data Management and Digital Transformation Project – 15th of May City",
+    entity: "New Urban Communities Authority (NUCA)",
+    role: [
+      "Contributed to building and managing the GIS data model for 37 sectors covering multiple utilities.",
+      "Applied ArcGIS Topology and Attribute Rules to ensure spatial integrity and connectivity.",
+      "Developed Python geoprocessing scripts for batch QA/QC, data correction, and automated reports.",
+      "Supported the consolidation of Electricity, Water, Sewage, Irrigation, and Gas networks into a unified geodatabase.",
+      "Participated in developing web GIS dashboards and analytical tools supporting digital transformation efforts."
+    ]
+  },
+  {
+    title: "Utility Networks GIS Data Management and Digital Transformation Project – New Salhia City",
+    entity: "New Urban Communities Authority (NUCA)",
+    role: [
+      "Contributed to structuring the geospatial database covering 9 sectors and multiple utility networks.",
+      "Applied ArcGIS Topology and Attribute Rules to maintain data quality and compliance with NUCA standards.",
+      "Developed Python scripts for automation, topology checks, and performance tracking.",
+      "Participated in creating customized web GIS dashboards for monitoring and data visualization.",
+      "Supported metadata creation and contributed to the digital transformation of infrastructure management systems."
+    ]
   }
 ];
 
@@ -153,9 +200,7 @@ function renderCards(list){
   list.forEach(p => {
     const card = document.createElement('div');
     card.className = 'card';
-
     const roleList = '<ul>' + p.role.map(r => `<li>${r}</li>`).join('') + '</ul>';
-
     card.innerHTML = `
       <h2>${p.title}</h2>
       <div class="meta"><span>${p.entity}</span></div>
