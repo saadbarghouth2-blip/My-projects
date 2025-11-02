@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  console.log("✅ Script loaded successfully");
+
+  const container = document.getElementById('projectsContainer');
+
   const projects = [
     {
       title:"Consultancy Study: Land Use Development around El-Dabaa Axis",
@@ -208,27 +212,23 @@ document.addEventListener("DOMContentLoaded", () => {
     grouped[p.category].push(p);
   });
 
+  const cats = Object.keys(grouped);
   let ordered = [];
   let i = 0;
-  const cats = Object.keys(grouped);
-  while (true) {
-    let added = false;
+
+  // ✅ Safe loop: continue while at least one category has an item at index i
+  while (cats.some(cat => grouped[cat].length > i)) {
     for (const cat of cats) {
       const item = grouped[cat][i];
-      if (item) {
-        ordered.push(item);
-        added = true;
-      }
+      if (item) ordered.push(item);
     }
-    if (!added) break;
+    i++;
   }
 
-  // Random offset for natural look
+  // Small random offset for natural spacing
   ordered = ordered.sort(() => Math.random() - 0.2);
 
   // ====== Rendering ======
-  const container = document.getElementById('projectsContainer');
-
   function renderCards(list){
     container.innerHTML = '';
     list.forEach(p => {
