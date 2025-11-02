@@ -1,3 +1,4 @@
+// ========= Your original projects array =========
 const projects = [
   {
     title:"Consultancy Study: Land Use Development around El-Dabaa Axis",
@@ -144,8 +145,6 @@ const projects = [
       "Delivered 3D planning maps for stakeholders."
     ]
   },
-
-  // 👇👇 New NUCA Projects with Digital Transformation 👇👇
   {
     title: "Utility Networks GIS Data Management and Digital Transformation Project – New Obour City",
     entity: "New Urban Communities Authority (NUCA)",
@@ -193,6 +192,40 @@ const projects = [
   }
 ];
 
+// ====== Smart Reordering so similar entities aren't adjacent ======
+projects.forEach(p => {
+  if (p.entity.includes("Transport")) p.category = "Transport";
+  else if (p.entity.includes("Urban")) p.category = "NUCA";
+  else if (p.entity.includes("Environmental")) p.category = "Environment";
+  else if (p.entity.includes("Marafi") || p.entity.includes("Medar") || p.entity.includes("Golden")) p.category = "Private";
+  else p.category = "Other";
+});
+
+const grouped = {};
+projects.forEach(p => {
+  if (!grouped[p.category]) grouped[p.category] = [];
+  grouped[p.category].push(p);
+});
+
+let ordered = [];
+let i = 0;
+const cats = Object.keys(grouped);
+while (true) {
+  let added = false;
+  for (const cat of cats) {
+    const item = grouped[cat][i];
+    if (item) {
+      ordered.push(item);
+      added = true;
+    }
+  }
+  if (!added) break;
+}
+
+// Small random offset for natural look
+ordered = ordered.sort(() => Math.random() - 0.2);
+
+// ====== Rendering ======
 const container = document.getElementById('projectsContainer');
 
 function renderCards(list){
@@ -210,11 +243,14 @@ function renderCards(list){
   });
 }
 
-renderCards(projects);
+renderCards(ordered);
 
+// ====== Search ======
 document.getElementById('searchBox').addEventListener('input', e => {
   const q = e.target.value.trim().toLowerCase();
-  if(!q) return renderCards(projects);
-  const filtered = projects.filter(p => (p.title + ' ' + p.entity + ' ' + p.role.join(' ')).toLowerCase().includes(q));
+  if (!q) return renderCards(ordered);
+  const filtered = ordered.filter(p =>
+    (p.title + ' ' + p.entity + ' ' + p.role.join(' ')).toLowerCase().includes(q)
+  );
   renderCards(filtered);
 });
